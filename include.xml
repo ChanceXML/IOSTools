@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-    <source path="IOSTools" />
+    <source path="." />
 
     <target id="ios">
         <file name="IOSTools/IOSToolsBridge.mm" />
