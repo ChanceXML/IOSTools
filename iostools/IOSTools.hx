@@ -4,7 +4,7 @@ package IOSTools;
 import lime.system.CFFI;
 #end
 
-class Tools {
+class IOSTools {
 
     #if ios
     private static var iostools_request_permission = CFFI.load("IOSTools", "iostools_request_permission", 1);
