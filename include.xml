@@ -3,22 +3,22 @@
     <source path="." />
 
     <target id="ios">
-        <file name="IOSTools/IOSToolsBridge.mm" />
+        <file name="iostools/iostoolsBridge.mm" />
         
-        <dependency path="IOSTools/IOSTools.swift" />
+        <dependency path="iostools/iostools.swift" />
         
-        <dependency path="IOSTools/Permissions/PermissionManager.swift" />
-        <dependency path="IOSTools/Permissions/PermissionType.swift" />
+        <dependency path="iostools/Permissions/PermissionManager.swift" />
+        <dependency path="iostools/Permissions/PermissionType.swift" />
         
-        <dependency path="IOSTools/UI/AlertManager.swift" />
-        <dependency path="IOSTools/UI/FeedbackManager.swift" />
+        <dependency path="iostools/UI/AlertManager.swift" />
+        <dependency path="iostools/UI/FeedbackManager.swift" />
         
-        <dependency path="IOSTools/Storage/StorageManager.swift" />
+        <dependency path="iostools/Storage/StorageManager.swift" />
         
-        <dependency path="IOSTools/Device/DeviceManager.swift" />
+        <dependency path="iostools/Device/DeviceManager.swift" />
       
-        <dependency path="IOSTools/Files/FilePermissionManager.swift" />
-        <dependency path="IOSTools/Files/FilePickerManager.swift" />
+        <dependency path="iostools/Files/FilePermissionManager.swift" />
+        <dependency path="iostools/Files/FilePickerManager.swift" />
         
         <dependency name="AVFoundation.framework" />
         <dependency name="Photos.framework" />
