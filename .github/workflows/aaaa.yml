@@ -3,13 +3,13 @@ name: Rename Folder
 on:
   workflow_dispatch:
     inputs:
-      old_name:
-        description: "Current folder name"
+      old_path:
+        description: "Folder path from repo root"
         required: true
         default: "IOS"
 
-      new_name:
-        description: "New folder name"
+      new_path:
+        description: "New folder path from repo root"
         required: true
         default: "ios"
 
@@ -22,23 +22,33 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Rename folder
+        working-directory: ${{ github.workspace }}
         run: |
-          if [ -d "${{ github.event.inputs.old_name }}" ]; then
-            mv "${{ github.event.inputs.old_name }}" temp_folder
-            mv temp_folder "${{ github.event.inputs.new_name }}"
+          OLD="${{ github.event.inputs.old_path }}"
+          NEW="${{ github.event.inputs.new_path }}"
+
+          if [ -d "$OLD" ]; then
+            TEMP="temp_rename_folder"
+
+            mv "$OLD" "$TEMP"
+            mv "$TEMP" "$NEW"
+
+            echo "Renamed $OLD -> $NEW"
           else
-            echo "Folder does not exist"
+            echo "Folder does not exist: $OLD"
             exit 1
           fi
 
       - name: Commit changes
+        working-directory: ${{ github.workspace }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add .
-          git commit -m "Rename folder ${{ github.event.inputs.old_name }} to ${{ github.event.inputs.new_name }}" || echo "No changes to commit"
+          git commit -m "Rename folder ${{ github.event.inputs.old_path }} to ${{ github.event.inputs.new_path }}" || echo "No changes to commit"
 
       - name: Push changes
+        working-directory: ${{ github.workspace }}
         run: |
           git push
