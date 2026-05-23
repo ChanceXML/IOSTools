@@ -13,7 +13,9 @@ It allows you to request permissions, pop up system alerts, save small data item
 ### 1. Show an Alert & Request Camera
 ```swift
 // Show a simple popup
-IOSTools.shared.ui.showAlert(title: "Hello!", message: "Welcome to our application.")
+IOSTools.shared.ui.showAlert(title: "something", message: "aa!", buttonText: "example") {
+    print("hello.")
+}
 
 // Request camera permission
 IOSTools.shared.permissions.request(.camera) { granted in
